@@ -24,10 +24,8 @@ import UIKit
 
 public class FlowManager {
     //mark: Internal Properties
-    /// `true` if coach marks are curently being displayed, `false` otherwise.
-    public var started: Bool {
-        return currentIndex > -1
-    }
+    /// `true` if coach mark flow has started, `false` otherwise.
+    public dynamic var started: Bool = false
 
     /// Sometimes, the chain of coach mark display can be paused
     /// to let animations be performed. `true` to pause the execution,
@@ -71,7 +69,11 @@ public class FlowManager {
     private var canShowCoachMark = true
 
     /// The index (in `coachMarks`) of the coach mark being currently displayed.
-    private var currentIndex = -1
+    private var currentIndex = -1 {
+        didSet {
+            started = currentIndex > -1
+        }
+    }
 
     init(coachMarksViewController: CoachMarksViewController) {
         self.coachMarksViewController = coachMarksViewController
