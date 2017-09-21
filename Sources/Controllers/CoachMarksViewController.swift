@@ -137,14 +137,20 @@ extension CoachMarksViewController {
             self.skipViewDisplayManager.showSkipView(skipView,
                                                      duration: overlayView.fadeAnimationDuration)
         }
-
-        UIView.animateWithDuration(overlayView.fadeAnimationDuration, animations: {
-            () -> Void in
+        
+        if overlayView.fadeAnimationDuration == 0 {
             self.overlayView.alpha = 1.0
-        }, completion: { (finished: Bool) -> Void in
             self.enableInteraction()
             completion()
-        })
+        } else {
+            UIView.animateWithDuration(overlayView.fadeAnimationDuration, animations: {
+                () -> Void in
+                self.overlayView.alpha = 1.0
+                }, completion: { (finished: Bool) -> Void in
+                    self.enableInteraction()
+                    completion()
+            })
+        }
     }
 
     func hideCurrentCoachMark(coachMark: CoachMark, withoutAnimation: Bool = false,
