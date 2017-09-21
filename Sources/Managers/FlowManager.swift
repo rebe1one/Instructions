@@ -22,10 +22,10 @@
 
 import UIKit
 
-public class FlowManager {
+public class FlowManager: NSObject {
     //mark: Internal Properties
     /// `true` if coach mark flow has started, `false` otherwise.
-    public dynamic var started: Bool = false
+    public var started: Bool = false
 
     /// Sometimes, the chain of coach mark display can be paused
     /// to let animations be performed. `true` to pause the execution,
