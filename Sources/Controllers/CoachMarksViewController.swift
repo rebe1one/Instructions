@@ -101,7 +101,7 @@ class CoachMarksViewController: UIViewController {
         instructionsRootView.addSubview(overlayView)
         let constraints = mainViewsLayoutHelper.fullSizeConstraintsForView(overlayView)
         instructionsRootView.addConstraints(constraints)
-
+        
         overlayView.alpha = 0.0
     }
 
@@ -109,6 +109,8 @@ class CoachMarksViewController: UIViewController {
         window.addSubview(instructionsRootView)
         let constraints = mainViewsLayoutHelper.fullSizeConstraintsForView(instructionsRootView)
         window.addConstraints(constraints)
+        
+        window.setNeedsLayout()
 
         instructionsRootView.backgroundColor = UIColor.clearColor()
     }
