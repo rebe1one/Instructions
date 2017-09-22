@@ -200,12 +200,12 @@ public class FlowManager: NSObject {
         // The delegate might have paused the flow, he check whether or not it's
         // the case.
         if !self.paused {
-            if coachMarksViewController.instructionsRootView.bounds.isEmpty {
-                print("The overlay view added to the window has empty bounds, " +
-                      "Instructions will stop.")
-                self.stopFlow()
-                return
-            }
+//            if coachMarksViewController.instructionsRootView.bounds.isEmpty {
+//                print("The overlay view added to the window has empty bounds, " +
+//                      "Instructions will stop.")
+//                self.stopFlow()
+//                return
+//            }
 
             coachMarksViewController.showCoachMark(&currentCoachMark!, withIndex: currentIndex) {
                 self.canShowCoachMark = true
